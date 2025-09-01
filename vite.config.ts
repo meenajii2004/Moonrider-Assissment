@@ -11,5 +11,25 @@ export default defineConfig({
     alias: {
       '@': '/src'
     }
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    minify: 'terser',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          ui: ['framer-motion', 'lucide-react'],
+          charts: ['chart.js', 'react-chartjs-2'],
+          utils: ['axios', 'date-fns', 'lodash']
+        }
+      }
+    }
+  },
+  preview: {
+    port: 4173,
+    host: true
   }
 })
