@@ -15,7 +15,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -23,7 +23,7 @@ export default defineConfig({
           router: ['react-router-dom'],
           ui: ['framer-motion', 'lucide-react'],
           charts: ['chart.js', 'react-chartjs-2'],
-          utils: ['axios', 'date-fns', 'lodash']
+          utils: ['axios', 'date-fns']
         }
       }
     }
