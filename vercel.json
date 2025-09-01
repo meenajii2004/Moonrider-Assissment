@@ -7,20 +7,9 @@
       "config": {
         "distDir": "dist"
       }
-    },
-    {
-      "src": "backend/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "maxDuration": 30
-      }
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/server.js"
-    },
     {
       "src": "/(.*)",
       "dest": "/$1"
@@ -28,5 +17,6 @@
   ],
   "env": {
     "NODE_ENV": "production"
-  }
+  },
+  "installCommand": "npm install --legacy-peer-deps"
 }
